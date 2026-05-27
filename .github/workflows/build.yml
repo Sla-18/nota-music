@@ -28,24 +28,15 @@ jobs:
       - name: Instalar dependências
         run: npm install
 
-      - name: Cache Gradle
-        uses: actions/cache@v4
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
         with:
-          path: |
-            ~/.gradle/caches
-            ~/.gradle/wrapper
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
-
-      - name: Dar permissão ao Gradle
-        run: |
-         chmod +x android/gradlew
-         chmod +x android/gradle/wrapper/gradle-wrapper.jar
-    
+          gradle-version: "8.6"
 
       - name: Build APK
         run: |
           cd android
-          ./gradlew assembleDebug --no-daemon
+          gradle assembleDebug --no-daemon
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
