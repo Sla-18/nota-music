@@ -28,11 +28,8 @@ jobs:
       - name: Instalar dependências
         run: npm install
 
-      - name: Gerar gradlew
-        run: |
-          cd android
-          gradle wrapper --gradle-version 8.6
-          chmod +x gradlew
+      - name: Permissão gradlew
+        run: chmod +x android/gradlew
 
       - name: Build APK
         run: |
