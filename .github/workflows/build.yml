@@ -29,8 +29,10 @@ jobs:
         run: npm install
 
       - name: Permissão gradlew
-        run: chmod +x android/gradlew
-
+        run: |
+         chmod +x android/gradlew
+         chmod 755 android/gradle/wrapper/gradle-wrapper.jar
+    
       - name: Build APK
         run: |
           cd android
