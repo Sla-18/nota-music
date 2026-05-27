@@ -37,7 +37,10 @@ jobs:
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
 
       - name: Dar permissão ao Gradle
-        run: chmod +x android/gradlew
+        run: |
+         chmod +x android/gradlew
+         chmod +x android/gradle/wrapper/gradle-wrapper.jar
+    
 
       - name: Build APK
         run: |
