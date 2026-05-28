@@ -33,6 +33,9 @@ jobs:
         with:
           gradle-version: "8.6"
 
+      - name: Verificar plugin
+        run: ls node_modules/@react-native/gradle-plugin || echo "PLUGIN NAO ENCONTRADO"
+
       - name: Gerar wrapper
         run: |
           cd android
