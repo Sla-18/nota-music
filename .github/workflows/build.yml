@@ -29,8 +29,11 @@ jobs:
         run: npm install
 
       - name: Verificar react-native android
-        run: ls node_modules/react-native/android/ || echo "NAO EXISTE"
-     
+        run: |
+          ls node_modules/react-native/android/
+          find node_modules/react-native -name "*.aar" | head -5
+          find node_modules/react-native -name "react-native-*.pom" | head -5
+          
       - name: Verificar plugin
         run: ls node_modules/@react-native/gradle-plugin || echo "PLUGIN NAO ENCONTRADO"
 
