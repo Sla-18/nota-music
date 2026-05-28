@@ -30,7 +30,7 @@ jobs:
 
       - name: Corrigir gradle-wrapper.jar
         run: |
-          curl -L "https://github.com/gradle/gradle/raw/v8.6.0/gradle/wrapper/gradle-wrapper.jar" -o android/gradle/wrapper/gradle-wrapper.jar
+          wget -q "https://repo1.maven.org/maven2/org/gradle/gradle-wrapper/8.6/gradle-wrapper-8.6.jar" -O android/gradle/wrapper/gradle-wrapper.jar
           chmod +x android/gradle/wrapper/gradle-wrapper.jar
 
       - name: Permissão gradlew
