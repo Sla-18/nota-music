@@ -48,6 +48,10 @@ jobs:
           gradle wrapper --gradle-version 8.6 --distribution-type bin
           chmod +x gradlew
 
+      - name: Verificar gradlew
+        run: |
+          cat android/gradle/wrapper/gradle-wrapper.properties
+
       - name: Build APK
         run: |
           cd android
