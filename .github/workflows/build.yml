@@ -28,6 +28,9 @@ jobs:
       - name: Instalar dependências
         run: npm install
 
+      - name: Verificar react-native android
+        run: ls node_modules/react-native/android/ || echo "NAO EXISTE"
+     
       - name: Verificar plugin
         run: ls node_modules/@react-native/gradle-plugin || echo "PLUGIN NAO ENCONTRADO"
 
