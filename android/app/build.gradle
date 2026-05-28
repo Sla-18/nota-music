@@ -1,5 +1,12 @@
 apply plugin: "com.android.application"
 
+repositories {
+    google()
+    mavenCentral()
+    maven { url "https://jitpack.io" }
+    maven { url "https://www.jitpack.io" }
+}
+
 android {
     namespace "com.notamusic"
     compileSdkVersion 34
