@@ -28,11 +28,13 @@ jobs:
       - name: Instalar dependências
         run: npm install
 
-      - name: Permissão gradlew
+      - name: Corrigir gradle-wrapper.jar
         run: |
-         chmod +x android/gradlew
-         chmod 755 android/gradle/wrapper/gradle-wrapper.jar
-    
+          curl -L "https://github.com/gradle/gradle/raw/v8.6.0/gradle/wrapper/gradle-wrapper.jar" -o android/gradle/wrapper/gradle-wrapper.jar
+
+      - name: Permissão gradlew
+        run: chmod +x android/gradlew
+
       - name: Build APK
         run: |
           cd android
