@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Nota Music</string>
+    <bool name="is_hermes_enabled">true</bool>
 </resources>
