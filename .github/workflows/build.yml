@@ -38,11 +38,27 @@ jobs:
           gradle wrapper --gradle-version 8.6
           chmod +x gradlew
 
+      - name: Criar keystore
+        run: |
+          keytool -genkeypair -v \
+            -keystore android/app/nota-music.keystore \
+            -alias nota-music \
+            -keyalg RSA \
+            -keysize 2048 \
+            -validity 10000 \
+            -storepass notamusic123 \
+            -keypass notamusic123 \
+            -dname "CN=Nota Music, OU=Dev, O=Nota, L=Maputo, S=Maputo, C=MZ"
+
       - name: Build APK
         run: |
           cd android
-          ./gradlew assembleDebug --no-daemon -PdisableDevMode=true
-
+          ./gradlew assembleRelease --no-daemon
+        env:
+          KEYSTORE_PASSWORD: notamusic123
+          KEY_ALIAS: nota-music
+          KEY_PASSWORD: notamusic123
+  
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
