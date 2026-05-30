@@ -13,6 +13,23 @@ android {
 
     buildFeatures {
         buildConfig true
+    signingConfigs {
+    release {
+        storeFile file("nota-music.keystore")
+        storePassword System.getenv("KEYSTORE_PASSWORD") ?: "notamusic123"
+        keyAlias System.getenv("KEY_ALIAS") ?: "nota-music"
+        keyPassword System.getenv("KEY_PASSWORD") ?: "notamusic123"
+    }
+}
+
+buildTypes {
+    debug { debuggable true }
+    release {
+        signingConfig signingConfigs.release
+        minifyEnabled false
+        proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+    }
+}
     }
 
     defaultConfig {
