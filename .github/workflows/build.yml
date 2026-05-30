@@ -58,10 +58,10 @@ jobs:
           KEYSTORE_PASSWORD: notamusic123
           KEY_ALIAS: nota-music
           KEY_PASSWORD: notamusic123
-  
+
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: nota-music-debug.apk
-          path: android/app/build/outputs/apk/debug/app-debug.apk
+          name: nota-music-release.apk
+          path: android/app/build/outputs/apk/release/app-release.apk
           retention-days: 30
